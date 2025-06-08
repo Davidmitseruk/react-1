@@ -72,19 +72,28 @@
 //  )
 //}
 
-const favouriteBooks = [
- { id: "id-1", name: "JS for beginners" },
- { id: "id-2", name: "React basics" },
- { id: "id-3", name: "React Router overview" },
- { id: "id-4", name: "Redux in depth" },
-];
+//const favouriteBooks = [
+// { id: "id-1", name: "JS for beginners" },
+// { id: "id-2", name: "React basics" },
+// { id: "id-3", name: "React Router overview" },
+// { id: "id-4", name: "Redux in depth" },
+//];
 
-const list = ({ books }) => {
-  return (
-    <ul>
-      {books.map(book => {
-        <li key={book.id}>{ book.name}</li>
-      })}
-    </ul>
-  )
-}
+//const list = ({ books }) => {
+//  return (
+//    <ul>
+//      {books.map(book => {
+//        <li key={book.id}>{ book.name}</li>
+//      })}
+//    </ul>
+//  )
+//}
+
+const Produkt = props => (
+  <>
+  <img src= {url} alt="Macbook" width='500'/>
+  <h2>Maacbook</h2>
+  <p>price: {productPrice-(productPrice*sale)}</p>
+  <button type="button">Buy</button>
+  </>
+)
