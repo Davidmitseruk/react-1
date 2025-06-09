@@ -1,5 +1,6 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
 // import './index.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
@@ -89,11 +90,42 @@
 //  )
 //}
 
-const Produkt = props => (
-  <>
-  <img src= {url} alt="Macbook" width='500'/>
-  <h2>Maacbook</h2>
-  <p>price: {productPrice-(productPrice*sale)}</p>
-  <button type="button">Buy</button>
-  </>
-)
+//const Produkt = props => (
+//  <>
+//  <img src= {url} alt="Macbook" width='500'/>
+//  <h2>Maacbook</h2>
+//  <p>price: {productPrice-(productPrice*sale)}</p>
+//  <button type="button">Buy</button>
+//  </>
+//)
+
+ const name = "David";
+ const italy = 'https://www.italiabound.com/wp-content/uploads/2018/06/cinque-terre-1859688_1920.jpg';
+ const sitename = "youtube";
+ const sitelink = "https://www.youtube.com/"
+ const one = 10;
+ const two = 37;
+ const colors = ["Red", "Blue", "Green"];
+
+ const Hw = (
+   <>
+     <h1>{name}</h1>
+
+     <p>Welcome to our site!</p>
+     <img src= {italy} alt="italy" width='500'/>
+
+     <h2>My Favourite site:</h2>
+     <p>{sitename}: {sitelink}</p>
+
+     <h2>basic Math:</h2> <p>{one+two}</p>
+
+      <h2>Colors:</h2>
+    <ul>
+      {colors.map((color, index) => (
+        <li key={index}>{color}</li>
+      ))}
+    </ul>
+   </>
+ )
+ReactDOM.createRoot(document.getElementById('root')).render(Hw);
+
