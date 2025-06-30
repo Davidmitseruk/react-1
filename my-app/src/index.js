@@ -99,33 +99,49 @@ import ReactDOM from 'react-dom/client';
 //  </>
 //)
 
- const name = "David";
- const italy = 'https://www.italiabound.com/wp-content/uploads/2018/06/cinque-terre-1859688_1920.jpg';
- const sitename = "youtube";
- const sitelink = "https://www.youtube.com/"
- const one = 10;
- const two = 37;
- const colors = ["Red", "Blue", "Green"];
+ //const name = "David";
+ //const italy = 'https://www.italiabound.com/wp-content/uploads/2018/06/cinque-terre-1859688_1920.jpg';
+ //const sitename = "youtube";
+ //const sitelink = "https://www.youtube.com/"
+ //const one = 10;
+ //const two = 37;
+ //const colors = ["Red", "Blue", "Green"];
 
- const Hw = (
-   <>
-     <h1>{name}</h1>
+ //const Hw = (
+ //  <>
+ //    <h1>{name}</h1>
+//
+ //    <p>Welcome to our site!</p>
+ //    <img src= {italy} alt="italy" width='500'/>
+//
+ //    <h2>My Favourite site:</h2>
+ ////    <p>{sitename}: {sitelink}</p>
+//
+ //    <h2>basic Math:</h2> <p>{one+two}</p>
+//
+ ////     <h2>Colors:</h2>
+ //   <ul>
+ //     {colors.map((color, index) => (
+ //       <li key={index}>{color}</li>
+ //     ))}
+ //   </ul>
+ //  </>
+ //)
+//ReactDOM.createRoot(document.getElementById('root')).render(Hw);
 
-     <p>Welcome to our site!</p>
-     <img src= {italy} alt="italy" width='500'/>
+import React from "react";
 
-     <h2>My Favourite site:</h2>
-     <p>{sitename}: {sitelink}</p>
 
-     <h2>basic Math:</h2> <p>{one+two}</p>
+const App = () => {
+    return <p style={{
+        color: 'white',
+        backgroundColor: 'gray',
+        borderRadius: 4,
+        padding: '12px 18px',
+        margin: 10
+    }}>Hello!</p>;
+};
 
-      <h2>Colors:</h2>
-    <ul>
-      {colors.map((color, index) => (
-        <li key={index}>{color}</li>
-      ))}
-    </ul>
-   </>
- )
-ReactDOM.createRoot(document.getElementById('root')).render(Hw);
+
+export default App;
 
