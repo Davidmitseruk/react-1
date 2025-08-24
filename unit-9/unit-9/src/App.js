@@ -64,3 +64,4 @@ class Toggle extends Component{
     )
   }
 }
+
