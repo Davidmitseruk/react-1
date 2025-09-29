@@ -15,7 +15,6 @@ class App extends Component{
   render(){
     return(
       <div className="appContainer">
-       <h1>search Gif</h1>
        <GifSearch
        onSearch = {this.handleSearch}
        />
