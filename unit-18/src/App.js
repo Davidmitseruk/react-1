@@ -2,6 +2,8 @@
 //   return   
 // }
 
+//const { useState } = require("react")
+
 // export default App;
 
 //import React, { createContext, useContext, useState } from "react";
@@ -103,26 +105,66 @@
  //
 
 
-import { useRef } from "react";
+ //import { useRef } from "react";
 
-const Player = ({source}) => {
-  const playerRef = useRef(null);
-  const play = () => playerRef.current.play();
-  const pause = () => playerRef.current.pause();
+ //const Player = ({source}) => {
+ //  const playerRef = useRef(null);
+ //  const play = () => playerRef.current.play();
+ //  const pause = () => playerRef.current.pause();
 
-  return (
-    <div>
-      <video ref={playerRef} src={source}>Sorry, we have a problem</video>
-      <div>
-        <button onClick = {play}>Play</button>
-        <button onClick={pause}>Pause</button>
-      </div>
-    </div>
-  )
+ //  return (
+ //    <div>
+ //      <video ref={playerRef} src={source}>Sorry, we have a problem</video>
+ //      <div>
+ //        <button onClick = {play}>Play</button>
+  //       <button onClick={pause}>Pause</button>
+ //      </div>
+ //    </div>
+ //  )
+ //}
+
+ //const App = () => {
+ //  return <Player source="http://media.w3.org/2010/05/sintel/trailer.mp4"/>
+ //}
+
+ //export default App;
+
+
+
+//import { useMemo, useState } from "react";
+
+
+//const App = ({someProp}) => {
+//  const [planets, setPlanets] = useState(['Earth', "Mars", "Venus", "Jupiter"])
+//  const [query, setQuery] = useState("");
+//  const [clikcs, setClicks] = useState(0)
+//
+//  const filteredPlanets = useMemo(() => planets.filter(planet => planet.includes(query)), [planets, query])
+//
+//  return(
+//    <div>
+//      <div>Some Props: {someProp}</div>
+//      <button onClick={()=>setClicks(clikcs+1)}>Number of clicks: {clikcs}</button>
+//      <div>
+//      {filteredPlanets.map(planet =>(
+//        <div key={planet}>{planet}</div>
+//      ))}
+//    </div>
+//   </div>
+    
+//  )
+//}
+
+//export default App;
+
+
+import React, { useState, useMemo, useCallback } from "react";
+
+function App(){
+  const [numbers, setNumbers] = useState([1, 2, 3]);
+  const [input, setInput] = useState("");
+  const [filter, seFilter] = useState('');
 }
 
-const App = () => {
-  return <Player source="http://media.w3.org/2010/05/sintel/trailer.mp4"/>
-}
+export default App
 
-export default App;
