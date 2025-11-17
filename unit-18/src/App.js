@@ -158,13 +158,127 @@
 //export default App;
 
 
-import React, { useState, useMemo, useCallback } from "react";
+//import React, { useState, useMemo, useCallback } from "react";
 
-function App(){
-  const [numbers, setNumbers] = useState([1, 2, 3]);
-  const [input, setInput] = useState("");
-  const [filter, seFilter] = useState('');
-}
+//function App(){
+//  const [numbers, setNumbers] = useState([1, 2, 3]);
+//  const [input, setInput] = useState("");
+//  const [filter, setFilter] = useState('');
 
-export default App
+//  const total = useMemo(()=> {
+//    return numbers.reduce((acc, n) => acc + n, 0);
+//  }, [numbers]);
+
+//  const addNumber = useCallback(() => {
+//    if(input.trim() === "") return;
+//    setNumbers([...numbers, Number(input)]);
+//    setInput("");
+//  }, [input, numbers]);
+
+//  const filteredNumbers = useMemo(() => {
+//    return numbers.filter((n) => n.toString().includes(filter))
+//  }, [numbers, filter]);
+
+//  return(
+//    <div>
+//      <div>
+//        <input type="number" value={input} placeholder="enter number" onChange={(e) => setInput(e.target.value)}/>
+//        <button onClick={addNumber}>Add</button>
+//      </div>
+//      <h3>List of numbers</h3>
+//      <ul>
+//        {numbers.map((n, i) => (<li key={i}>{n}</li>))}
+//      </ul>
+//      <h3>Total: {total}</h3>
+//      <div>
+//        <input type="text" value={filter} onChange={(e) => setFilter(e.target.value)}/>
+//      </div>
+//      <h3>filtered Numbers</h3>
+//      <ul>
+//        {filteredNumbers.map((n, i) => (<li key={i}>{n}</li>))}
+//      </ul>
+//    </div>
+//  )
+//}
+
+//export default App
+
+import React, { useState, useMemo, useCallback, useEffect } from "react";
+
+const TodoApp = () => {
+
+  const [todos, setTodos] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
+
+
+const fetchTodos = useCallback(async () => {
+  setLoading(true);
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=20");
+  const data = await response.json();
+  setTodos(data);
+  setLoading(false);
+}, []);
+
+useEffect(()=>{
+  fetchTodos()
+}, [fetchTodos])
+
+const toggleTodo = useCallback((id) => {
+  setTodos((prev) => {
+    prev.map((t) => t.id === id ? {...t, completed: !t.completed}: t)
+  })
+}, [])
+
+const handleSearch = useCallback((e) => {
+  setSearch(e.target.value);
+}, []) 
+
+const filteredTodos = useMemo(() => {
+  return todos.filter((t) => 
+  t.title.toLowerCase().includes(search.toLowerCase()))
+}, [todos, search])
+
+const completedCount = useMemo(() => {
+  return filteredTodos.filter((t) => t.completed).length;
+}, [filteredTodos])
+
+
+    return (
+      <div style={{ padding: "20px" }}>
+        <h2>Todo App</h2>
+
+        <input
+          type="text"
+          placeholder="Search todo..."
+          value={search}
+          onChange={handleSearch}
+          style={{ marginBottom: "10px", padding: "5px" }}
+        />
+
+        {loading && <p>Loading...</p>}
+
+        <p>
+          Completed: {completedCount} / {filteredTodos.length}
+        </p>
+
+        <ul>
+          {filteredTodos.map((t) => (
+            <li key={t.id}>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={t.completed}
+                  onChange={() => toggleTodo(t.id)}
+                />
+                {t.title}
+              </label>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+export default TodoApp;
 
